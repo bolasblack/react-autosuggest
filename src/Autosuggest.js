@@ -658,7 +658,11 @@ export default class Autosuggest extends Component {
           }
         }
 
-        onKeyDown && onKeyDown(event);
+        onKeyDown &&
+          onKeyDown(event, {
+            isAnySuggestionFocused:
+              this.state.highlightedSuggestionIndex != null
+          });
       }
     };
     const renderSuggestionData = {
